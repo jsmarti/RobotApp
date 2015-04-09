@@ -1,1 +1,9 @@
 C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\bin\Debug\RobotApp.exe.config
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\bin\Debug\RobotApp.exe
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\bin\Debug\RobotApp.pdb
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\obj\Debug\RobotApp.csprojResolveAssemblyReference.cache
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\obj\Debug\RobotApp.Form1.resources
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\obj\Debug\RobotApp.Properties.Resources.resources
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\obj\Debug\RobotApp.csproj.GenerateResource.Cache
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\obj\Debug\RobotApp.exe
+C:\Users\JuanSebastian\Documents\GitHub\RobotApp\RobotApp\RobotApp\obj\Debug\RobotApp.pdb
