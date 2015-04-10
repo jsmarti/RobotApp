@@ -56,6 +56,9 @@
             this.labelBarre = new System.Windows.Forms.Label();
             this.instrucciones = new System.Windows.Forms.TextBox();
             this.labelInstrucciones = new System.Windows.Forms.Label();
+            this.btnConexion = new System.Windows.Forms.Button();
+            this.comboCOMs = new System.Windows.Forms.ComboBox();
+            this.labelPuerto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.verdePila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rojoPila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgRobot)).BeginInit();
@@ -315,7 +318,7 @@
             // 
             // instrucciones
             // 
-            this.instrucciones.Location = new System.Drawing.Point(718, 359);
+            this.instrucciones.Location = new System.Drawing.Point(675, 359);
             this.instrucciones.Name = "instrucciones";
             this.instrucciones.Size = new System.Drawing.Size(80, 20);
             this.instrucciones.TabIndex = 26;
@@ -324,17 +327,51 @@
             // labelInstrucciones
             // 
             this.labelInstrucciones.AutoSize = true;
-            this.labelInstrucciones.Location = new System.Drawing.Point(715, 337);
+            this.labelInstrucciones.Location = new System.Drawing.Point(672, 337);
             this.labelInstrucciones.Name = "labelInstrucciones";
             this.labelInstrucciones.Size = new System.Drawing.Size(73, 13);
             this.labelInstrucciones.TabIndex = 27;
             this.labelInstrucciones.Text = "Instrucciones:";
+            // 
+            // btnConexion
+            // 
+            this.btnConexion.Location = new System.Drawing.Point(431, 50);
+            this.btnConexion.Name = "btnConexion";
+            this.btnConexion.Size = new System.Drawing.Size(93, 26);
+            this.btnConexion.TabIndex = 28;
+            this.btnConexion.Text = "Iniciar Conexión";
+            this.btnConexion.UseVisualStyleBackColor = true;
+            this.btnConexion.Click += new System.EventHandler(this.btnConexion_Click);
+            // 
+            // comboCOMs
+            // 
+            this.comboCOMs.FormattingEnabled = true;
+            this.comboCOMs.Items.AddRange(new object[] {
+            "COM1",
+            "COM2",
+            "COM3"});
+            this.comboCOMs.Location = new System.Drawing.Point(431, 108);
+            this.comboCOMs.Name = "comboCOMs";
+            this.comboCOMs.Size = new System.Drawing.Size(84, 21);
+            this.comboCOMs.TabIndex = 29;
+            // 
+            // labelPuerto
+            // 
+            this.labelPuerto.AutoSize = true;
+            this.labelPuerto.Location = new System.Drawing.Point(428, 92);
+            this.labelPuerto.Name = "labelPuerto";
+            this.labelPuerto.Size = new System.Drawing.Size(41, 13);
+            this.labelPuerto.TabIndex = 30;
+            this.labelPuerto.Text = "Puerto:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 445);
+            this.Controls.Add(this.labelPuerto);
+            this.Controls.Add(this.comboCOMs);
+            this.Controls.Add(this.btnConexion);
             this.Controls.Add(this.labelInstrucciones);
             this.Controls.Add(this.instrucciones);
             this.Controls.Add(this.labelBarre);
@@ -412,6 +449,9 @@
         private System.Windows.Forms.Label labelBarre;
         private System.Windows.Forms.TextBox instrucciones;
         private System.Windows.Forms.Label labelInstrucciones;
+        private System.Windows.Forms.Button btnConexion;
+        private System.Windows.Forms.ComboBox comboCOMs;
+        private System.Windows.Forms.Label labelPuerto;
     }
 }
 
