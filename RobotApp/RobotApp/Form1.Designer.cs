@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.commandLog = new System.Windows.Forms.TextBox();
             this.robotLog = new System.Windows.Forms.TextBox();
@@ -414,6 +415,7 @@
             this.Controls.Add(this.labelComandos);
             this.Controls.Add(this.robotLog);
             this.Controls.Add(this.commandLog);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "RobotApp";
             ((System.ComponentModel.ISupportInitialize)(this.botones)).EndInit();
