@@ -36,21 +36,6 @@
             this.labelRobot = new System.Windows.Forms.Label();
             this.labelCorriente = new System.Windows.Forms.Label();
             this.logCorriente = new System.Windows.Forms.TextBox();
-            this.verdePila = new System.Windows.Forms.PictureBox();
-            this.rojoPila = new System.Windows.Forms.PictureBox();
-            this.imgRobot = new System.Windows.Forms.PictureBox();
-            this.rojoSensorIzquierdo = new System.Windows.Forms.PictureBox();
-            this.rojoSensorDerecho = new System.Windows.Forms.PictureBox();
-            this.rojoSensorTrasero = new System.Windows.Forms.PictureBox();
-            this.verdeSensorIzquierdo = new System.Windows.Forms.PictureBox();
-            this.verdeSensorDerecho = new System.Windows.Forms.PictureBox();
-            this.verdeSensorTrasero = new System.Windows.Forms.PictureBox();
-            this.rojoRecoge = new System.Windows.Forms.PictureBox();
-            this.rojoDeposita = new System.Windows.Forms.PictureBox();
-            this.verdeRecoge = new System.Windows.Forms.PictureBox();
-            this.verdeDeposita = new System.Windows.Forms.PictureBox();
-            this.rojoBarre = new System.Windows.Forms.PictureBox();
-            this.verdeBarre = new System.Windows.Forms.PictureBox();
             this.labelDeposita = new System.Windows.Forms.Label();
             this.labelRecoge = new System.Windows.Forms.Label();
             this.labelBarre = new System.Windows.Forms.Label();
@@ -59,21 +44,36 @@
             this.btnConexion = new System.Windows.Forms.Button();
             this.comboCOMs = new System.Windows.Forms.ComboBox();
             this.labelPuerto = new System.Windows.Forms.Label();
+            this.azulDeposita = new System.Windows.Forms.PictureBox();
+            this.verdeBarre = new System.Windows.Forms.PictureBox();
+            this.verdeDeposita = new System.Windows.Forms.PictureBox();
+            this.verdeRecoge = new System.Windows.Forms.PictureBox();
+            this.verdeSensorTrasero = new System.Windows.Forms.PictureBox();
+            this.verdeSensorDerecho = new System.Windows.Forms.PictureBox();
+            this.verdeSensorIzquierdo = new System.Windows.Forms.PictureBox();
+            this.rojoSensorTrasero = new System.Windows.Forms.PictureBox();
+            this.rojoSensorDerecho = new System.Windows.Forms.PictureBox();
+            this.rojoSensorIzquierdo = new System.Windows.Forms.PictureBox();
+            this.verdePila = new System.Windows.Forms.PictureBox();
+            this.rojoPila = new System.Windows.Forms.PictureBox();
+            this.imgRobot = new System.Windows.Forms.PictureBox();
+            this.azulRecoge = new System.Windows.Forms.PictureBox();
+            this.azulBarre = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.azulDeposita)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeBarre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeDeposita)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeRecoge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorTrasero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorDerecho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorIzquierdo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorTrasero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorDerecho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorIzquierdo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verdePila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rojoPila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgRobot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorIzquierdo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorDerecho)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorTrasero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorIzquierdo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorDerecho)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorTrasero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoRecoge)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoDeposita)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeRecoge)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeDeposita)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoBarre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeBarre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.azulRecoge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.azulBarre)).BeginInit();
             this.SuspendLayout();
             // 
             // commandLog
@@ -131,163 +131,6 @@
             this.logCorriente.Name = "logCorriente";
             this.logCorriente.Size = new System.Drawing.Size(63, 20);
             this.logCorriente.TabIndex = 5;
-            // 
-            // verdePila
-            // 
-            this.verdePila.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdePila.Location = new System.Drawing.Point(192, 244);
-            this.verdePila.Name = "verdePila";
-            this.verdePila.Size = new System.Drawing.Size(31, 25);
-            this.verdePila.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdePila.TabIndex = 8;
-            this.verdePila.TabStop = false;
-            // 
-            // rojoPila
-            // 
-            this.rojoPila.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoPila.Location = new System.Drawing.Point(192, 244);
-            this.rojoPila.Name = "rojoPila";
-            this.rojoPila.Size = new System.Drawing.Size(31, 25);
-            this.rojoPila.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoPila.TabIndex = 7;
-            this.rojoPila.TabStop = false;
-            this.rojoPila.Visible = false;
-            // 
-            // imgRobot
-            // 
-            this.imgRobot.Image = global::RobotApp.Properties.Resources.robotd;
-            this.imgRobot.Location = new System.Drawing.Point(157, 142);
-            this.imgRobot.Name = "imgRobot";
-            this.imgRobot.Size = new System.Drawing.Size(100, 208);
-            this.imgRobot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgRobot.TabIndex = 6;
-            this.imgRobot.TabStop = false;
-            // 
-            // rojoSensorIzquierdo
-            // 
-            this.rojoSensorIzquierdo.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoSensorIzquierdo.Location = new System.Drawing.Point(120, 274);
-            this.rojoSensorIzquierdo.Name = "rojoSensorIzquierdo";
-            this.rojoSensorIzquierdo.Size = new System.Drawing.Size(31, 25);
-            this.rojoSensorIzquierdo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoSensorIzquierdo.TabIndex = 10;
-            this.rojoSensorIzquierdo.TabStop = false;
-            this.rojoSensorIzquierdo.Visible = false;
-            // 
-            // rojoSensorDerecho
-            // 
-            this.rojoSensorDerecho.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoSensorDerecho.Location = new System.Drawing.Point(263, 274);
-            this.rojoSensorDerecho.Name = "rojoSensorDerecho";
-            this.rojoSensorDerecho.Size = new System.Drawing.Size(31, 25);
-            this.rojoSensorDerecho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoSensorDerecho.TabIndex = 11;
-            this.rojoSensorDerecho.TabStop = false;
-            this.rojoSensorDerecho.Visible = false;
-            // 
-            // rojoSensorTrasero
-            // 
-            this.rojoSensorTrasero.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoSensorTrasero.Location = new System.Drawing.Point(192, 353);
-            this.rojoSensorTrasero.Name = "rojoSensorTrasero";
-            this.rojoSensorTrasero.Size = new System.Drawing.Size(31, 25);
-            this.rojoSensorTrasero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoSensorTrasero.TabIndex = 12;
-            this.rojoSensorTrasero.TabStop = false;
-            this.rojoSensorTrasero.Visible = false;
-            // 
-            // verdeSensorIzquierdo
-            // 
-            this.verdeSensorIzquierdo.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdeSensorIzquierdo.Location = new System.Drawing.Point(120, 274);
-            this.verdeSensorIzquierdo.Name = "verdeSensorIzquierdo";
-            this.verdeSensorIzquierdo.Size = new System.Drawing.Size(31, 25);
-            this.verdeSensorIzquierdo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdeSensorIzquierdo.TabIndex = 13;
-            this.verdeSensorIzquierdo.TabStop = false;
-            // 
-            // verdeSensorDerecho
-            // 
-            this.verdeSensorDerecho.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdeSensorDerecho.Location = new System.Drawing.Point(263, 274);
-            this.verdeSensorDerecho.Name = "verdeSensorDerecho";
-            this.verdeSensorDerecho.Size = new System.Drawing.Size(31, 25);
-            this.verdeSensorDerecho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdeSensorDerecho.TabIndex = 14;
-            this.verdeSensorDerecho.TabStop = false;
-            // 
-            // verdeSensorTrasero
-            // 
-            this.verdeSensorTrasero.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdeSensorTrasero.Location = new System.Drawing.Point(192, 353);
-            this.verdeSensorTrasero.Name = "verdeSensorTrasero";
-            this.verdeSensorTrasero.Size = new System.Drawing.Size(31, 25);
-            this.verdeSensorTrasero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdeSensorTrasero.TabIndex = 15;
-            this.verdeSensorTrasero.TabStop = false;
-            // 
-            // rojoRecoge
-            // 
-            this.rojoRecoge.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoRecoge.Location = new System.Drawing.Point(171, 111);
-            this.rojoRecoge.Name = "rojoRecoge";
-            this.rojoRecoge.Size = new System.Drawing.Size(31, 25);
-            this.rojoRecoge.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoRecoge.TabIndex = 16;
-            this.rojoRecoge.TabStop = false;
-            this.rojoRecoge.Visible = false;
-            // 
-            // rojoDeposita
-            // 
-            this.rojoDeposita.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoDeposita.Location = new System.Drawing.Point(171, 80);
-            this.rojoDeposita.Name = "rojoDeposita";
-            this.rojoDeposita.Size = new System.Drawing.Size(31, 25);
-            this.rojoDeposita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoDeposita.TabIndex = 18;
-            this.rojoDeposita.TabStop = false;
-            this.rojoDeposita.Visible = false;
-            // 
-            // verdeRecoge
-            // 
-            this.verdeRecoge.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdeRecoge.Location = new System.Drawing.Point(171, 111);
-            this.verdeRecoge.Name = "verdeRecoge";
-            this.verdeRecoge.Size = new System.Drawing.Size(31, 25);
-            this.verdeRecoge.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdeRecoge.TabIndex = 19;
-            this.verdeRecoge.TabStop = false;
-            // 
-            // verdeDeposita
-            // 
-            this.verdeDeposita.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdeDeposita.Location = new System.Drawing.Point(171, 80);
-            this.verdeDeposita.Name = "verdeDeposita";
-            this.verdeDeposita.Size = new System.Drawing.Size(31, 25);
-            this.verdeDeposita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdeDeposita.TabIndex = 20;
-            this.verdeDeposita.TabStop = false;
-            // 
-            // rojoBarre
-            // 
-            this.rojoBarre.Image = global::RobotApp.Properties.Resources.rojo;
-            this.rojoBarre.Location = new System.Drawing.Point(226, 111);
-            this.rojoBarre.Name = "rojoBarre";
-            this.rojoBarre.Size = new System.Drawing.Size(31, 25);
-            this.rojoBarre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.rojoBarre.TabIndex = 21;
-            this.rojoBarre.TabStop = false;
-            this.rojoBarre.Visible = false;
-            // 
-            // verdeBarre
-            // 
-            this.verdeBarre.Image = global::RobotApp.Properties.Resources.verde;
-            this.verdeBarre.Location = new System.Drawing.Point(226, 111);
-            this.verdeBarre.Name = "verdeBarre";
-            this.verdeBarre.Size = new System.Drawing.Size(31, 25);
-            this.verdeBarre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.verdeBarre.TabIndex = 22;
-            this.verdeBarre.TabStop = false;
             // 
             // labelDeposita
             // 
@@ -349,7 +192,10 @@
             this.comboCOMs.Items.AddRange(new object[] {
             "COM1",
             "COM2",
-            "COM3"});
+            "COM3",
+            "COM4",
+            "COM5",
+            "COM6"});
             this.comboCOMs.Location = new System.Drawing.Point(589, 357);
             this.comboCOMs.Name = "comboCOMs";
             this.comboCOMs.Size = new System.Drawing.Size(84, 21);
@@ -364,11 +210,171 @@
             this.labelPuerto.TabIndex = 30;
             this.labelPuerto.Text = "Puerto:";
             // 
+            // azulDeposita
+            // 
+            this.azulDeposita.Image = global::RobotApp.Properties.Resources.azul;
+            this.azulDeposita.Location = new System.Drawing.Point(171, 68);
+            this.azulDeposita.Name = "azulDeposita";
+            this.azulDeposita.Size = new System.Drawing.Size(31, 25);
+            this.azulDeposita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.azulDeposita.TabIndex = 31;
+            this.azulDeposita.TabStop = false;
+            this.azulDeposita.Visible = false;
+            // 
+            // verdeBarre
+            // 
+            this.verdeBarre.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdeBarre.Location = new System.Drawing.Point(226, 111);
+            this.verdeBarre.Name = "verdeBarre";
+            this.verdeBarre.Size = new System.Drawing.Size(31, 25);
+            this.verdeBarre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdeBarre.TabIndex = 22;
+            this.verdeBarre.TabStop = false;
+            // 
+            // verdeDeposita
+            // 
+            this.verdeDeposita.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdeDeposita.Location = new System.Drawing.Point(171, 68);
+            this.verdeDeposita.Name = "verdeDeposita";
+            this.verdeDeposita.Size = new System.Drawing.Size(31, 25);
+            this.verdeDeposita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdeDeposita.TabIndex = 20;
+            this.verdeDeposita.TabStop = false;
+            // 
+            // verdeRecoge
+            // 
+            this.verdeRecoge.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdeRecoge.Location = new System.Drawing.Point(171, 111);
+            this.verdeRecoge.Name = "verdeRecoge";
+            this.verdeRecoge.Size = new System.Drawing.Size(31, 25);
+            this.verdeRecoge.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdeRecoge.TabIndex = 19;
+            this.verdeRecoge.TabStop = false;
+            // 
+            // verdeSensorTrasero
+            // 
+            this.verdeSensorTrasero.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdeSensorTrasero.Location = new System.Drawing.Point(192, 353);
+            this.verdeSensorTrasero.Name = "verdeSensorTrasero";
+            this.verdeSensorTrasero.Size = new System.Drawing.Size(31, 25);
+            this.verdeSensorTrasero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdeSensorTrasero.TabIndex = 15;
+            this.verdeSensorTrasero.TabStop = false;
+            // 
+            // verdeSensorDerecho
+            // 
+            this.verdeSensorDerecho.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdeSensorDerecho.Location = new System.Drawing.Point(263, 274);
+            this.verdeSensorDerecho.Name = "verdeSensorDerecho";
+            this.verdeSensorDerecho.Size = new System.Drawing.Size(31, 25);
+            this.verdeSensorDerecho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdeSensorDerecho.TabIndex = 14;
+            this.verdeSensorDerecho.TabStop = false;
+            // 
+            // verdeSensorIzquierdo
+            // 
+            this.verdeSensorIzquierdo.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdeSensorIzquierdo.Location = new System.Drawing.Point(120, 274);
+            this.verdeSensorIzquierdo.Name = "verdeSensorIzquierdo";
+            this.verdeSensorIzquierdo.Size = new System.Drawing.Size(31, 25);
+            this.verdeSensorIzquierdo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdeSensorIzquierdo.TabIndex = 13;
+            this.verdeSensorIzquierdo.TabStop = false;
+            // 
+            // rojoSensorTrasero
+            // 
+            this.rojoSensorTrasero.Image = global::RobotApp.Properties.Resources.rojo;
+            this.rojoSensorTrasero.Location = new System.Drawing.Point(192, 353);
+            this.rojoSensorTrasero.Name = "rojoSensorTrasero";
+            this.rojoSensorTrasero.Size = new System.Drawing.Size(31, 25);
+            this.rojoSensorTrasero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.rojoSensorTrasero.TabIndex = 12;
+            this.rojoSensorTrasero.TabStop = false;
+            this.rojoSensorTrasero.Visible = false;
+            // 
+            // rojoSensorDerecho
+            // 
+            this.rojoSensorDerecho.Image = global::RobotApp.Properties.Resources.rojo;
+            this.rojoSensorDerecho.Location = new System.Drawing.Point(263, 274);
+            this.rojoSensorDerecho.Name = "rojoSensorDerecho";
+            this.rojoSensorDerecho.Size = new System.Drawing.Size(31, 25);
+            this.rojoSensorDerecho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.rojoSensorDerecho.TabIndex = 11;
+            this.rojoSensorDerecho.TabStop = false;
+            this.rojoSensorDerecho.Visible = false;
+            // 
+            // rojoSensorIzquierdo
+            // 
+            this.rojoSensorIzquierdo.Image = global::RobotApp.Properties.Resources.rojo;
+            this.rojoSensorIzquierdo.Location = new System.Drawing.Point(120, 274);
+            this.rojoSensorIzquierdo.Name = "rojoSensorIzquierdo";
+            this.rojoSensorIzquierdo.Size = new System.Drawing.Size(31, 25);
+            this.rojoSensorIzquierdo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.rojoSensorIzquierdo.TabIndex = 10;
+            this.rojoSensorIzquierdo.TabStop = false;
+            this.rojoSensorIzquierdo.Visible = false;
+            // 
+            // verdePila
+            // 
+            this.verdePila.Image = global::RobotApp.Properties.Resources.verde;
+            this.verdePila.Location = new System.Drawing.Point(192, 244);
+            this.verdePila.Name = "verdePila";
+            this.verdePila.Size = new System.Drawing.Size(31, 25);
+            this.verdePila.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.verdePila.TabIndex = 8;
+            this.verdePila.TabStop = false;
+            // 
+            // rojoPila
+            // 
+            this.rojoPila.Image = global::RobotApp.Properties.Resources.rojo;
+            this.rojoPila.Location = new System.Drawing.Point(192, 244);
+            this.rojoPila.Name = "rojoPila";
+            this.rojoPila.Size = new System.Drawing.Size(31, 25);
+            this.rojoPila.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.rojoPila.TabIndex = 7;
+            this.rojoPila.TabStop = false;
+            this.rojoPila.Visible = false;
+            // 
+            // imgRobot
+            // 
+            this.imgRobot.Image = global::RobotApp.Properties.Resources.robotd;
+            this.imgRobot.Location = new System.Drawing.Point(157, 142);
+            this.imgRobot.Name = "imgRobot";
+            this.imgRobot.Size = new System.Drawing.Size(100, 208);
+            this.imgRobot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgRobot.TabIndex = 6;
+            this.imgRobot.TabStop = false;
+            // 
+            // azulRecoge
+            // 
+            this.azulRecoge.Image = global::RobotApp.Properties.Resources.azul;
+            this.azulRecoge.Location = new System.Drawing.Point(171, 111);
+            this.azulRecoge.Name = "azulRecoge";
+            this.azulRecoge.Size = new System.Drawing.Size(31, 25);
+            this.azulRecoge.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.azulRecoge.TabIndex = 32;
+            this.azulRecoge.TabStop = false;
+            this.azulRecoge.Visible = false;
+            // 
+            // azulBarre
+            // 
+            this.azulBarre.Image = global::RobotApp.Properties.Resources.azul;
+            this.azulBarre.Location = new System.Drawing.Point(226, 111);
+            this.azulBarre.Name = "azulBarre";
+            this.azulBarre.Size = new System.Drawing.Size(31, 25);
+            this.azulBarre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.azulBarre.TabIndex = 33;
+            this.azulBarre.TabStop = false;
+            this.azulBarre.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 445);
+            this.Controls.Add(this.azulBarre);
+            this.Controls.Add(this.azulRecoge);
+            this.Controls.Add(this.azulDeposita);
             this.Controls.Add(this.labelPuerto);
             this.Controls.Add(this.comboCOMs);
             this.Controls.Add(this.btnConexion);
@@ -378,11 +384,8 @@
             this.Controls.Add(this.labelRecoge);
             this.Controls.Add(this.labelDeposita);
             this.Controls.Add(this.verdeBarre);
-            this.Controls.Add(this.rojoBarre);
             this.Controls.Add(this.verdeDeposita);
             this.Controls.Add(this.verdeRecoge);
-            this.Controls.Add(this.rojoDeposita);
-            this.Controls.Add(this.rojoRecoge);
             this.Controls.Add(this.verdeSensorTrasero);
             this.Controls.Add(this.verdeSensorDerecho);
             this.Controls.Add(this.verdeSensorIzquierdo);
@@ -400,21 +403,21 @@
             this.Controls.Add(this.commandLog);
             this.Name = "Form1";
             this.Text = "RobotApp";
+            ((System.ComponentModel.ISupportInitialize)(this.azulDeposita)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeBarre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeDeposita)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeRecoge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorTrasero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorDerecho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorIzquierdo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorTrasero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorDerecho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorIzquierdo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verdePila)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rojoPila)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgRobot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorIzquierdo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorDerecho)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoSensorTrasero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorIzquierdo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorDerecho)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeSensorTrasero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoRecoge)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoDeposita)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeRecoge)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeDeposita)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rojoBarre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verdeBarre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.azulRecoge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.azulBarre)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,11 +441,8 @@
         private System.Windows.Forms.PictureBox verdeSensorIzquierdo;
         private System.Windows.Forms.PictureBox verdeSensorDerecho;
         private System.Windows.Forms.PictureBox verdeSensorTrasero;
-        private System.Windows.Forms.PictureBox rojoRecoge;
-        private System.Windows.Forms.PictureBox rojoDeposita;
         private System.Windows.Forms.PictureBox verdeRecoge;
         private System.Windows.Forms.PictureBox verdeDeposita;
-        private System.Windows.Forms.PictureBox rojoBarre;
         private System.Windows.Forms.PictureBox verdeBarre;
         private System.Windows.Forms.Label labelDeposita;
         private System.Windows.Forms.Label labelRecoge;
@@ -452,6 +452,9 @@
         private System.Windows.Forms.Button btnConexion;
         private System.Windows.Forms.ComboBox comboCOMs;
         private System.Windows.Forms.Label labelPuerto;
+        private System.Windows.Forms.PictureBox azulDeposita;
+        private System.Windows.Forms.PictureBox azulRecoge;
+        private System.Windows.Forms.PictureBox azulBarre;
     }
 }
 

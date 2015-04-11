@@ -41,6 +41,8 @@ namespace RobotApp
             InitializeComponent();
         }
 
+        
+
 
         private void commandRobot(object sender, KeyPressEventArgs e)
         {
