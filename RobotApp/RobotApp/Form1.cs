@@ -142,58 +142,110 @@ namespace RobotApp
             logCorriente.Text = ("" + corriente);
 
             if (llave.Equals(GIRO_DERECHA)) {
+                verdeSensorDerecho.Visible = true;
+                rojoSensorDerecho.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Giro a la derecha" + System.Environment.NewLine);
             }
             else if (llave.Equals(GIRO_IZQUIERDA))
             {
+                verdeSensorIzquierdo.Visible = true;
+                rojoSensorIzquierdo.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Giro a la izquierda" + System.Environment.NewLine);
             }
             else if (llave.Equals(ADELANTE))
             {
                 robotLog.Text += ("Avanza" + System.Environment.NewLine);
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
             }
             else if (llave.Equals(ATRAS))
             {
+                verdeSensorTrasero.Visible = true;
+                rojoSensorTrasero.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Retrocede" + System.Environment.NewLine);
             }
             else if (llave.Equals(RECOGE))
             {
+                verdeBarre.Visible = false;
+                azulBarre.Visible = true;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Barre" + System.Environment.NewLine);
             }
             else if (llave.Equals(MOV_RECOGE))
             {
+                verdeBarre.Visible = true;
+                azulBarre.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Escoba en posicion de movimiento" + System.Environment.NewLine);
             }
             else if (llave.Equals(DEPOSITA))
             {
+                verdeDeposita.Visible = false;
+                azulDeposita.Visible = true;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Deposita" + System.Environment.NewLine);
             }
             else if (llave.Equals(PALA_RECOGE))
             {
+                verdeRecoge.Visible = false;
+                azulRecoge.Visible = true;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Pala en posicion de recoger" + System.Environment.NewLine);
             }
             else if (llave.Equals(MOV_DEPOSITA)||llave.Equals(MOV_PALA_RECOGE))
             {
+                verdeRecoge.Visible = true;
+                verdeDeposita.Visible = true;
+                azulRecoge.Visible = false;
+                azulDeposita.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Pala en posicion de movimiento" + System.Environment.NewLine);
             }
             else if (llave.Equals(POSICIONAR_PALA_ESCOBA))
             {
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Posicionar pala y escoba para el movimiento" + System.Environment.NewLine);
             }
             else if (llave.Equals(SOBRECORRIENTE))
             {
+                rojoPila.Visible = true;
+                verdePila.Visible = false;
                 robotLog.Text += ("Corriente excedida, robot bloqueado" + System.Environment.NewLine);
             }
             else if (llave.Equals(OBSTACULO_DERECHA))
             {
+                rojoSensorDerecho.Visible = true;
+                verdeSensorDerecho.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Obstaculo a la derecha" + System.Environment.NewLine);
             }
             else if (llave.Equals(OBSTACULO_IZQUIERDA))
             {
+                rojoSensorIzquierdo.Visible = true;
+                verdeSensorIzquierdo.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Obstaculo a la izquierda" + System.Environment.NewLine);
             }
             else if (llave.Equals(OBSTACULO_TRASERO))
             {
+                rojoSensorTrasero.Visible = true;
+                rojoSensorTrasero.Visible = false;
+                rojoPila.Visible = false;
+                verdePila.Visible = true;
                 robotLog.Text += ("Obstaculo atras" + System.Environment.NewLine);
             }
             
