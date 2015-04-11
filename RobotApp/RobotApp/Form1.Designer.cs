@@ -119,7 +119,7 @@
             // labelCorriente
             // 
             this.labelCorriente.AutoSize = true;
-            this.labelCorriente.Location = new System.Drawing.Point(586, 337);
+            this.labelCorriente.Location = new System.Drawing.Point(453, 39);
             this.labelCorriente.Name = "labelCorriente";
             this.labelCorriente.Size = new System.Drawing.Size(52, 13);
             this.labelCorriente.TabIndex = 4;
@@ -127,7 +127,7 @@
             // 
             // logCorriente
             // 
-            this.logCorriente.Location = new System.Drawing.Point(589, 359);
+            this.logCorriente.Location = new System.Drawing.Point(456, 61);
             this.logCorriente.Name = "logCorriente";
             this.logCorriente.Size = new System.Drawing.Size(63, 20);
             this.logCorriente.TabIndex = 5;
@@ -318,7 +318,7 @@
             // 
             // instrucciones
             // 
-            this.instrucciones.Location = new System.Drawing.Point(675, 359);
+            this.instrucciones.Location = new System.Drawing.Point(456, 116);
             this.instrucciones.Name = "instrucciones";
             this.instrucciones.Size = new System.Drawing.Size(80, 20);
             this.instrucciones.TabIndex = 26;
@@ -327,7 +327,7 @@
             // labelInstrucciones
             // 
             this.labelInstrucciones.AutoSize = true;
-            this.labelInstrucciones.Location = new System.Drawing.Point(672, 337);
+            this.labelInstrucciones.Location = new System.Drawing.Point(453, 94);
             this.labelInstrucciones.Name = "labelInstrucciones";
             this.labelInstrucciones.Size = new System.Drawing.Size(73, 13);
             this.labelInstrucciones.TabIndex = 27;
@@ -335,7 +335,7 @@
             // 
             // btnConexion
             // 
-            this.btnConexion.Location = new System.Drawing.Point(431, 50);
+            this.btnConexion.Location = new System.Drawing.Point(699, 353);
             this.btnConexion.Name = "btnConexion";
             this.btnConexion.Size = new System.Drawing.Size(93, 26);
             this.btnConexion.TabIndex = 28;
@@ -350,7 +350,7 @@
             "COM1",
             "COM2",
             "COM3"});
-            this.comboCOMs.Location = new System.Drawing.Point(431, 108);
+            this.comboCOMs.Location = new System.Drawing.Point(589, 357);
             this.comboCOMs.Name = "comboCOMs";
             this.comboCOMs.Size = new System.Drawing.Size(84, 21);
             this.comboCOMs.TabIndex = 29;
@@ -358,7 +358,7 @@
             // labelPuerto
             // 
             this.labelPuerto.AutoSize = true;
-            this.labelPuerto.Location = new System.Drawing.Point(428, 92);
+            this.labelPuerto.Location = new System.Drawing.Point(586, 341);
             this.labelPuerto.Name = "labelPuerto";
             this.labelPuerto.Size = new System.Drawing.Size(41, 13);
             this.labelPuerto.TabIndex = 30;
