@@ -131,12 +131,16 @@ namespace RobotApp
                     serialPort1.Open();  //Abrir la conexión
                     btnConexion.Text = "Cerrar Conexión";
                     conectado = true;
- 
+
                 }
                 catch (ArgumentException ex)   // Código que se ejecuta en caso de error
                 {
                     MessageBox.Show("Error conexión " + ex.Message);
                     serialPort1.Close(); //Cerrar la conexión
+                }
+                catch (IOException ex2) {
+                    MessageBox.Show("Error en el puerto " + ex2.Message);
+                    serialPort1.Close(); //Cerrar la conexión  
                 }
                 conectado = true;
             }
