@@ -26,7 +26,7 @@ namespace RobotApp
         public const string OBSTACULO_TRASERO = "OT";
         public const string RECOGE = "R";
         public const string MOV_RECOGE = "MR";
-        public const string DEPOSITA = "B";
+        public const string DEPOSITA = "DP";
         public const string MOV_DEPOSITA = "MB";
         public const string PALA_RECOGE = "U";
         public const string MOV_PALA_RECOGE = "MU";
@@ -36,10 +36,11 @@ namespace RobotApp
         public const string LIBRE_IZQUIERDA = "LI";
         public const string LIBRE_ATRAS = "LA";
         public const string CORRIENTE_OK = "CO";
+        public const string PARA = "P";
+        public const string SENSORES = "Z";
 
         bool conectado = false;
 
-        Thread thread;
         delegate void monitorCallback();
 
         public Form1()
@@ -68,6 +69,7 @@ namespace RobotApp
             commandLog.Update();
             commandLog.SelectionStart = commandLog.Text.Length;
             commandLog.ScrollToCaret();
+            procesarRespuesta();
         }
 
         private string procesarComando(char ch) { 
@@ -103,6 +105,11 @@ namespace RobotApp
                 serialPort1.WriteLine("p");
                 return "Parar";
             }
+            else if (ch == 'z')
+            {
+                serialPort1.WriteLine("z");
+                return "Sensores";
+            }
             else
                 return "Nulo";
         }
@@ -119,12 +126,12 @@ namespace RobotApp
                     serialPort1.Parity = Parity.None;
                     serialPort1.DataBits = 8;
                     serialPort1.StopBits = StopBits.One;
+                    serialPort1.ReadTimeout = 500;
+                    serialPort1.WriteTimeout = 500;
                     serialPort1.Open();  //Abrir la conexión
                     btnConexion.Text = "Cerrar Conexión";
                     conectado = true;
-                    thread = new Thread(new ThreadStart(monitorSerial));
-                    thread.Start();
-                    while (!thread.IsAlive) ;
+ 
                 }
                 catch (ArgumentException ex)   // Código que se ejecuta en caso de error
                 {
@@ -139,17 +146,23 @@ namespace RobotApp
                 conectado = false;
                 if (serialPort1 != null)
                     serialPort1.Close();
-                thread.Abort();
+
             }
 
         }
 
         private async void procesarRespuesta() {
-            while (true)
-            {
+
                 await Task.Delay(500);
                 char[] delimitadores = new char[] { ':' };
-                string[] respuesta = serialPort1.ReadLine().Split(delimitadores);
+                string[] respuesta = new string[]{"1:n"};
+                try
+                {
+                    respuesta = serialPort1.ReadLine().Split(delimitadores);
+                }
+                catch (TimeoutException) {
+                    
+                }
 
                 //Segun el protocolo: "corriente:llave:valor"
 
@@ -157,17 +170,29 @@ namespace RobotApp
                 string corriente = respuesta[0];
                 //llave
                 string llave = respuesta[1];
-                //valor
-                string valor = respuesta[2];
 
                 logCorriente.Text = ("" + corriente);
 
+                if (llave.Equals(SOBRECORRIENTE))
+                {
+                    verdePila.Visible = false;
+                    rojoPila.Visible = true;
+                }
+                else {
+                    verdePila.Visible = true;
+                    rojoPila.Visible = false;
+                }
+
                 if (llave.Equals(GIRO_DERECHA))
                 {
+                    verdeSensorDerecho.Visible = true;
+                    rojoSensorDerecho.Visible = false;
                     robotLog.Text += ("Giro a la derecha" + System.Environment.NewLine);
                 }
                 else if (llave.Equals(GIRO_IZQUIERDA))
                 {
+                    verdeSensorIzquierdo.Visible = true;
+                    rojoSensorIzquierdo.Visible = false;
                     robotLog.Text += ("Giro a la izquierda" + System.Environment.NewLine);
                 }
                 else if (llave.Equals(ADELANTE))
@@ -177,6 +202,8 @@ namespace RobotApp
                 }
                 else if (llave.Equals(ATRAS))
                 {
+                    verdeSensorTrasero.Visible = true;
+                    rojoSensorTrasero.Visible = false;
                     robotLog.Text += ("Retrocede" + System.Environment.NewLine);
                 }
                 else if (llave.Equals(RECOGE))
@@ -236,7 +263,7 @@ namespace RobotApp
                 else if (llave.Equals(OBSTACULO_TRASERO))
                 {
                     rojoSensorTrasero.Visible = true;
-                    rojoSensorTrasero.Visible = false;
+                    verdeSensorTrasero.Visible = false;
                     robotLog.Text += ("Obstaculo atras" + System.Environment.NewLine);
                 }
 
@@ -262,14 +289,37 @@ namespace RobotApp
                 {
                     verdePila.Visible = true;
                     rojoPila.Visible = false;
- 
+
                 }
+                else if(llave.Equals(SENSORES)){
+                    String derecha = respuesta[2];
+                    String atras = respuesta[3];
+                    String izquierda = respuesta[4];
+
+                    verdeSensorDerecho.Visible = !derecha.Equals("O");
+                    rojoSensorDerecho.Visible = derecha.Equals("O");
+
+                    verdeSensorIzquierdo.Visible = !izquierda.Equals("O");
+                    rojoSensorIzquierdo.Visible = izquierda.Equals("O");
+
+                    verdeSensorTrasero.Visible = !atras.Equals("O");
+                    rojoSensorTrasero.Visible = atras.Equals("O");
+                }
+                else { }
 
 
                 robotLog.Update();
                 robotLog.SelectionStart = commandLog.Text.Length;
                 robotLog.ScrollToCaret();
-            }
+            
+        }
+
+        private void limpiarLogs(object sender, EventArgs e)
+        {
+            this.logCorriente.Text = "";
+            this.robotLog.Text = "";
+            this.commandLog.Text = "";
+
         }
      
     }
