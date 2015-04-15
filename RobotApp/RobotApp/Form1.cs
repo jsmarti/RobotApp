@@ -105,6 +105,7 @@ namespace RobotApp
                 else if (ch == 'z')
                 {
                     serialPort1.WriteLine("z");
+                    System.Threading.Thread.Sleep(1500);
                     return "Sensores";
                 }
                 else if (ch == '1')
@@ -172,7 +173,7 @@ namespace RobotApp
         }
 
         private void procesarRespuesta() {
-
+                
                 char[] delimitadores = new char[] { ':' };
                 string[] respuesta = new string[]{"1:n:n:"};
                 try
