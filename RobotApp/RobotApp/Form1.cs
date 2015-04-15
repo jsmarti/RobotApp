@@ -335,14 +335,23 @@ namespace RobotApp
                 catch (TimeoutException e)
                 {
                     robotLog.Text += ("Sin respuesta, reenviar comando" + System.Environment.NewLine);
+                    robotLog.Update();
+                    robotLog.SelectionStart = commandLog.Text.Length;
+                    robotLog.ScrollToCaret();
                     return;
                 }
                 catch (InvalidOperationException ex)
                 {
                     robotLog.Text += ("Conexion no iniciada" + System.Environment.NewLine);
+                    robotLog.Update();
+                    robotLog.SelectionStart = commandLog.Text.Length;
+                    robotLog.ScrollToCaret();
                     return;
                 }
                 catch (IndexOutOfRangeException ex2) {
+                    robotLog.Update();
+                    robotLog.SelectionStart = commandLog.Text.Length;
+                    robotLog.ScrollToCaret();
                     return;
                 }
 
