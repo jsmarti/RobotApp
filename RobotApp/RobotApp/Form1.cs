@@ -107,6 +107,21 @@ namespace RobotApp
                     serialPort1.WriteLine("z");
                     return "Sensores";
                 }
+                else if (ch == '1')
+                {
+                    serialPort1.WriteLine("1");
+                    return "Velocidad baja";
+                }
+                else if (ch == '2')
+                {
+                    serialPort1.WriteLine("2");
+                    return "Velocidad media";
+                }
+                else if (ch == '3')
+                {
+                    serialPort1.WriteLine("3");
+                    return "velocidad alta";
+                }
                 else
                     return "Nulo";
             }
