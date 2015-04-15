@@ -62,6 +62,7 @@ namespace RobotApp
 
         private string procesarComando(char ch) {
             try {
+                serialPort1.DiscardInBuffer();
                 if (ch == 'w')
                 {
                     serialPort1.WriteLine("w");
@@ -143,8 +144,8 @@ namespace RobotApp
                     serialPort1.Parity = Parity.None;
                     serialPort1.DataBits = 8;
                     serialPort1.StopBits = StopBits.One;
-                    serialPort1.ReadTimeout = 500;
-                    serialPort1.WriteTimeout = 500;
+                    serialPort1.ReadTimeout = 1500;
+                    serialPort1.WriteTimeout = 1500;
                     serialPort1.Open();  //Abrir la conexión
                     btnConexion.Text = "Cerrar Conexión";
                     conectado = true;
@@ -172,13 +173,16 @@ namespace RobotApp
 
         }
 
-        private void procesarRespuesta() {
+        private void procesarRespuesta()
+        {
                 
                 char[] delimitadores = new char[] { ':' };
                 string[] respuesta = new string[]{"1","n","n"};
                 try
                 {
+                    
                     respuesta = serialPort1.ReadLine().Split(delimitadores);
+                    
                     //Segun el protocolo: "corriente:llave:valor"
 
                     //Corriente sensada:
