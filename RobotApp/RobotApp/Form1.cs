@@ -41,25 +41,13 @@ namespace RobotApp
 
         bool conectado = false;
 
-        delegate void monitorCallback();
 
         public Form1()
         {
             InitializeComponent();
+            logVelocidadPwm.Text = "Alta";
         }
 
-
-        private void monitorSerial() {
-            if (this.logCorriente.InvokeRequired && this.robotLog.InvokeRequired)
-            {
-                monitorCallback callBack = new monitorCallback(procesarRespuesta);
-                this.Invoke(callBack);
-            }
-            else {
-                this.procesarRespuesta();
-            }
-        
-        }
 
         private void commandRobot(object sender, KeyPressEventArgs e)
         {
@@ -72,46 +60,59 @@ namespace RobotApp
             procesarRespuesta();
         }
 
-        private string procesarComando(char ch) { 
-            if(ch == 'w'){
-                serialPort1.WriteLine("w");
-                return "Avanzar";
+        private string procesarComando(char ch) {
+            try {
+                if (ch == 'w')
+                {
+                    serialPort1.WriteLine("w");
+                    return "Avanzar";
+                }
+                else if (ch == 's')
+                {
+                    serialPort1.WriteLine("s");
+                    return "Retroceder";
+                }
+                else if (ch == 'a')
+                {
+                    serialPort1.WriteLine("a");
+                    return "Doblar a la izquierda";
+                }
+                else if (ch == 'd')
+                {
+                    serialPort1.WriteLine("d");
+                    return "Doblar a la derecha";
+                }
+                else if (ch == 'r')
+                {
+                    serialPort1.WriteLine("r");
+                    return "Barrer";
+                }
+                else if (ch == 'u')
+                {
+                    serialPort1.WriteLine("u");
+                    return "Posicion de recoleccion";
+                }
+                else if (ch == 'b')
+                {
+                    serialPort1.WriteLine("b");
+                    return "Depositar";
+                }
+                else if (ch == 'p')
+                {
+                    serialPort1.WriteLine("p");
+                    return "Parar";
+                }
+                else if (ch == 'z')
+                {
+                    serialPort1.WriteLine("z");
+                    return "Sensores";
+                }
+                else
+                    return "Nulo";
             }
-            else if(ch == 's'){
-                serialPort1.WriteLine("s");
-                return "Retroceder";
+            catch (InvalidOperationException ex) {
+                return "Conexion no iniciada";
             }
-            else if(ch == 'a'){
-                serialPort1.WriteLine("a");
-                return "Doblar a la izquierda";
-            }
-            else if(ch == 'd'){
-                serialPort1.WriteLine("d");
-                return "Doblar a la derecha";
-            }
-            else if(ch == 'r'){
-                serialPort1.WriteLine("r");
-                return "Barrer";
-            }
-            else if(ch == 'u'){
-                serialPort1.WriteLine("u");
-                return "Posicion de recoleccion";
-            }
-            else if(ch == 'b'){
-                serialPort1.WriteLine("b");
-                return "Depositar";
-            }
-            else if (ch == 'p') {
-                serialPort1.WriteLine("p");
-                return "Parar";
-            }
-            else if (ch == 'z')
-            {
-                serialPort1.WriteLine("z");
-                return "Sensores";
-            }
-            else
-                return "Nulo";
         }
 
         private void btnConexion_Click(object sender, EventArgs e)
@@ -139,7 +140,7 @@ namespace RobotApp
                     serialPort1.Close(); //Cerrar la conexión
                 }
                 catch (IOException ex2) {
-                    MessageBox.Show("Error en el puerto " + ex2.Message);
+                    MessageBox.Show("Error en el puerto: " + ex2.Message);
                     serialPort1.Close(); //Cerrar la conexión  
                 }
                 conectado = true;
@@ -159,13 +160,19 @@ namespace RobotApp
 
                 await Task.Delay(500);
                 char[] delimitadores = new char[] { ':' };
-                string[] respuesta = new string[]{"1:n"};
+                string[] respuesta = new string[]{"1:n:n:"};
                 try
                 {
                     respuesta = serialPort1.ReadLine().Split(delimitadores);
                 }
-                catch (TimeoutException) {
-                    
+                catch (TimeoutException e)
+                {
+                    robotLog.Text += ("Sin respuesta, reenviar comando" + System.Environment.NewLine);
+                    return;
+                }
+                catch (InvalidOperationException ex) {
+                    robotLog.Text += ("Conexion no iniciada" + System.Environment.NewLine);
+                    return;
                 }
 
                 //Segun el protocolo: "corriente:llave:valor"
@@ -174,8 +181,11 @@ namespace RobotApp
                 string corriente = respuesta[0];
                 //llave
                 string llave = respuesta[1];
+                //Velocidad promedio
+                string velocidad = respuesta[2];
 
                 logCorriente.Text = ("" + corriente);
+                logVelocidad.Text = ("" + velocidad);
 
                 if (llave.Equals(SOBRECORRIENTE))
                 {
@@ -309,7 +319,18 @@ namespace RobotApp
                     verdeSensorTrasero.Visible = !atras.Equals("O");
                     rojoSensorTrasero.Visible = atras.Equals("O");
                 }
-                else { }
+                else if(llave.Equals("1")){
+                    logVelocidadPwm.Text = "Baja";
+                }
+                else if (llave.Equals("2")) {
+                    logVelocidadPwm.Text = "Media";
+                }
+                else if (llave.Equals("3")) {
+                    logVelocidadPwm.Text = "Alta";
+                }
+                else {
+                    
+                }
 
 
                 robotLog.Update();

@@ -62,6 +62,14 @@
             this.rojoPila = new System.Windows.Forms.PictureBox();
             this.imgRobot = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelVelocidad = new System.Windows.Forms.Label();
+            this.logVelocidad = new System.Windows.Forms.TextBox();
+            this.labelVelocidadPWM = new System.Windows.Forms.Label();
+            this.logVelocidadPwm = new System.Windows.Forms.TextBox();
+            this.labelVelocidades = new System.Windows.Forms.Label();
+            this.labelVelocidadBaja = new System.Windows.Forms.Label();
+            this.labelVelocidadMedia = new System.Windows.Forms.Label();
+            this.labelVelocidadAlta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.botones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.azulBarre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.azulRecoge)).BeginInit();
@@ -123,7 +131,7 @@
             // labelCorriente
             // 
             this.labelCorriente.AutoSize = true;
-            this.labelCorriente.Location = new System.Drawing.Point(30, 349);
+            this.labelCorriente.Location = new System.Drawing.Point(13, 349);
             this.labelCorriente.Name = "labelCorriente";
             this.labelCorriente.Size = new System.Drawing.Size(52, 13);
             this.labelCorriente.TabIndex = 4;
@@ -131,8 +139,9 @@
             // 
             // logCorriente
             // 
-            this.logCorriente.Location = new System.Drawing.Point(88, 346);
+            this.logCorriente.Location = new System.Drawing.Point(108, 346);
             this.logCorriente.Name = "logCorriente";
+            this.logCorriente.ReadOnly = true;
             this.logCorriente.Size = new System.Drawing.Size(63, 20);
             this.logCorriente.TabIndex = 5;
             // 
@@ -165,7 +174,7 @@
             // 
             // instrucciones
             // 
-            this.instrucciones.Location = new System.Drawing.Point(362, 300);
+            this.instrucciones.Location = new System.Drawing.Point(372, 63);
             this.instrucciones.Name = "instrucciones";
             this.instrucciones.Size = new System.Drawing.Size(80, 20);
             this.instrucciones.TabIndex = 26;
@@ -174,7 +183,7 @@
             // labelInstrucciones
             // 
             this.labelInstrucciones.AutoSize = true;
-            this.labelInstrucciones.Location = new System.Drawing.Point(283, 303);
+            this.labelInstrucciones.Location = new System.Drawing.Point(293, 66);
             this.labelInstrucciones.Name = "labelInstrucciones";
             this.labelInstrucciones.Size = new System.Drawing.Size(73, 13);
             this.labelInstrucciones.TabIndex = 27;
@@ -391,11 +400,93 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.limpiarLogs);
             // 
+            // labelVelocidad
+            // 
+            this.labelVelocidad.AutoSize = true;
+            this.labelVelocidad.Location = new System.Drawing.Point(11, 375);
+            this.labelVelocidad.Name = "labelVelocidad";
+            this.labelVelocidad.Size = new System.Drawing.Size(91, 13);
+            this.labelVelocidad.TabIndex = 36;
+            this.labelVelocidad.Text = "Velocidad [rad/s]:";
+            // 
+            // logVelocidad
+            // 
+            this.logVelocidad.Location = new System.Drawing.Point(108, 372);
+            this.logVelocidad.Name = "logVelocidad";
+            this.logVelocidad.ReadOnly = true;
+            this.logVelocidad.Size = new System.Drawing.Size(63, 20);
+            this.logVelocidad.TabIndex = 37;
+            // 
+            // labelVelocidadPWM
+            // 
+            this.labelVelocidadPWM.AutoSize = true;
+            this.labelVelocidadPWM.Location = new System.Drawing.Point(11, 405);
+            this.labelVelocidadPWM.Name = "labelVelocidadPWM";
+            this.labelVelocidadPWM.Size = new System.Drawing.Size(88, 13);
+            this.labelVelocidadPWM.TabIndex = 38;
+            this.labelVelocidadPWM.Text = "Velocidad [pwm]:";
+            // 
+            // logVelocidadPwm
+            // 
+            this.logVelocidadPwm.Location = new System.Drawing.Point(108, 402);
+            this.logVelocidadPwm.Name = "logVelocidadPwm";
+            this.logVelocidadPwm.ReadOnly = true;
+            this.logVelocidadPwm.Size = new System.Drawing.Size(63, 20);
+            this.logVelocidadPwm.TabIndex = 39;
+            // 
+            // labelVelocidades
+            // 
+            this.labelVelocidades.AutoSize = true;
+            this.labelVelocidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVelocidades.Location = new System.Drawing.Point(230, 305);
+            this.labelVelocidades.Name = "labelVelocidades";
+            this.labelVelocidades.Size = new System.Drawing.Size(136, 25);
+            this.labelVelocidades.TabIndex = 40;
+            this.labelVelocidades.Text = "Velocidades:";
+            // 
+            // labelVelocidadBaja
+            // 
+            this.labelVelocidadBaja.AutoSize = true;
+            this.labelVelocidadBaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVelocidadBaja.Location = new System.Drawing.Point(230, 337);
+            this.labelVelocidadBaja.Name = "labelVelocidadBaja";
+            this.labelVelocidadBaja.Size = new System.Drawing.Size(180, 25);
+            this.labelVelocidadBaja.TabIndex = 41;
+            this.labelVelocidadBaja.Text = "Velocidad Baja: 1";
+            // 
+            // labelVelocidadMedia
+            // 
+            this.labelVelocidadMedia.AutoSize = true;
+            this.labelVelocidadMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVelocidadMedia.Location = new System.Drawing.Point(230, 366);
+            this.labelVelocidadMedia.Name = "labelVelocidadMedia";
+            this.labelVelocidadMedia.Size = new System.Drawing.Size(196, 25);
+            this.labelVelocidadMedia.TabIndex = 42;
+            this.labelVelocidadMedia.Text = "Velocidad Media: 2";
+            // 
+            // labelVelocidadAlta
+            // 
+            this.labelVelocidadAlta.AutoSize = true;
+            this.labelVelocidadAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVelocidadAlta.Location = new System.Drawing.Point(230, 393);
+            this.labelVelocidadAlta.Name = "labelVelocidadAlta";
+            this.labelVelocidadAlta.Size = new System.Drawing.Size(174, 25);
+            this.labelVelocidadAlta.TabIndex = 43;
+            this.labelVelocidadAlta.Text = "Velocidad Alta: 3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 377);
+            this.ClientSize = new System.Drawing.Size(913, 427);
+            this.Controls.Add(this.labelVelocidadAlta);
+            this.Controls.Add(this.labelVelocidadMedia);
+            this.Controls.Add(this.labelVelocidadBaja);
+            this.Controls.Add(this.labelVelocidades);
+            this.Controls.Add(this.logVelocidadPwm);
+            this.Controls.Add(this.labelVelocidadPWM);
+            this.Controls.Add(this.logVelocidad);
+            this.Controls.Add(this.labelVelocidad);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.botones);
             this.Controls.Add(this.azulBarre);
@@ -485,6 +576,14 @@
         private System.Windows.Forms.PictureBox azulBarre;
         private System.Windows.Forms.PictureBox botones;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelVelocidad;
+        private System.Windows.Forms.TextBox logVelocidad;
+        private System.Windows.Forms.Label labelVelocidadPWM;
+        private System.Windows.Forms.TextBox logVelocidadPwm;
+        private System.Windows.Forms.Label labelVelocidades;
+        private System.Windows.Forms.Label labelVelocidadBaja;
+        private System.Windows.Forms.Label labelVelocidadMedia;
+        private System.Windows.Forms.Label labelVelocidadAlta;
     }
 }
 
