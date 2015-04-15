@@ -208,7 +208,10 @@
             "COM3",
             "COM4",
             "COM5",
-            "COM6"});
+            "COM6",
+            "COM7",
+            "COM8",
+            "COM9"});
             this.comboCOMs.Location = new System.Drawing.Point(591, 341);
             this.comboCOMs.Name = "comboCOMs";
             this.comboCOMs.Size = new System.Drawing.Size(84, 21);

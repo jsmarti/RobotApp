@@ -164,178 +164,189 @@ namespace RobotApp
                 try
                 {
                     respuesta = serialPort1.ReadLine().Split(delimitadores);
+                    //Segun el protocolo: "corriente:llave:valor"
+
+                    //Corriente sensada:
+                    string corriente = respuesta[0];
+                    //llave
+                    string llave = respuesta[1];
+                    //Velocidad promedio
+                    string velocidad = respuesta[2];
+
+                    logCorriente.Text = ("" + corriente);
+                    logVelocidad.Text = ("" + velocidad);
+
+                    if (llave.Equals(SOBRECORRIENTE))
+                    {
+                        verdePila.Visible = false;
+                        rojoPila.Visible = true;
+                    }
+                    else
+                    {
+                        verdePila.Visible = true;
+                        rojoPila.Visible = false;
+                    }
+
+                    if (llave.Equals(GIRO_DERECHA))
+                    {
+                        verdeSensorDerecho.Visible = true;
+                        rojoSensorDerecho.Visible = false;
+                        robotLog.Text += ("Giro a la derecha" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(GIRO_IZQUIERDA))
+                    {
+                        verdeSensorIzquierdo.Visible = true;
+                        rojoSensorIzquierdo.Visible = false;
+                        robotLog.Text += ("Giro a la izquierda" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(ADELANTE))
+                    {
+                        robotLog.Text += ("Avanza" + System.Environment.NewLine);
+
+                    }
+                    else if (llave.Equals(ATRAS))
+                    {
+                        verdeSensorTrasero.Visible = true;
+                        rojoSensorTrasero.Visible = false;
+                        robotLog.Text += ("Retrocede" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(RECOGE))
+                    {
+                        verdeBarre.Visible = false;
+                        azulBarre.Visible = true;
+                        robotLog.Text += ("Barre" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(MOV_RECOGE))
+                    {
+                        verdeBarre.Visible = true;
+                        azulBarre.Visible = false;
+                        robotLog.Text += ("Escoba en posicion de movimiento" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(DEPOSITA))
+                    {
+                        verdeDeposita.Visible = false;
+                        azulDeposita.Visible = true;
+                        robotLog.Text += ("Deposita" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(PALA_RECOGE))
+                    {
+                        verdeRecoge.Visible = false;
+                        azulRecoge.Visible = true;
+                        robotLog.Text += ("Pala en posicion de recoger" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(MOV_DEPOSITA) || llave.Equals(MOV_PALA_RECOGE))
+                    {
+                        verdeRecoge.Visible = true;
+                        verdeDeposita.Visible = true;
+                        azulRecoge.Visible = false;
+                        azulDeposita.Visible = false;
+                        robotLog.Text += ("Pala en posicion de movimiento" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(POSICIONAR_PALA_ESCOBA))
+                    {
+                        robotLog.Text += ("Posicionar pala y escoba para el movimiento" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(SOBRECORRIENTE))
+                    {
+                        rojoPila.Visible = true;
+                        verdePila.Visible = false;
+                        robotLog.Text += ("Corriente excedida, robot bloqueado" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(OBSTACULO_DERECHA))
+                    {
+                        rojoSensorDerecho.Visible = true;
+                        verdeSensorDerecho.Visible = false;
+                        robotLog.Text += ("Obstaculo a la derecha" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(OBSTACULO_IZQUIERDA))
+                    {
+                        rojoSensorIzquierdo.Visible = true;
+                        verdeSensorIzquierdo.Visible = false;
+                        robotLog.Text += ("Obstaculo a la izquierda" + System.Environment.NewLine);
+                    }
+                    else if (llave.Equals(OBSTACULO_TRASERO))
+                    {
+                        rojoSensorTrasero.Visible = true;
+                        verdeSensorTrasero.Visible = false;
+                        robotLog.Text += ("Obstaculo atras" + System.Environment.NewLine);
+                    }
+
+                    else if (llave.Equals(LIBRE_DERECHA))
+                    {
+                        verdeSensorDerecho.Visible = true;
+                        rojoSensorDerecho.Visible = false;
+
+                    }
+                    else if (llave.Equals(LIBRE_IZQUIERDA))
+                    {
+                        verdeSensorIzquierdo.Visible = true;
+                        rojoSensorIzquierdo.Visible = false;
+
+                    }
+                    else if (llave.Equals(LIBRE_ATRAS))
+                    {
+                        verdeSensorTrasero.Visible = true;
+                        rojoSensorTrasero.Visible = false;
+
+                    }
+                    else if (llave.Equals(CORRIENTE_OK))
+                    {
+                        verdePila.Visible = true;
+                        rojoPila.Visible = false;
+
+                    }
+                    else if (llave.Equals(SENSORES))
+                    {
+                        String derecha = respuesta[2];
+                        String atras = respuesta[3];
+                        String izquierda = respuesta[4];
+
+                        verdeSensorDerecho.Visible = !derecha.Equals("O");
+                        rojoSensorDerecho.Visible = derecha.Equals("O");
+
+                        verdeSensorIzquierdo.Visible = !izquierda.Equals("O");
+                        rojoSensorIzquierdo.Visible = izquierda.Equals("O");
+
+                        verdeSensorTrasero.Visible = !atras.Equals("O");
+                        rojoSensorTrasero.Visible = atras.Equals("O");
+                    }
+                    else if (llave.Equals("1"))
+                    {
+                        logVelocidadPwm.Text = "Baja";
+                    }
+                    else if (llave.Equals("2"))
+                    {
+                        logVelocidadPwm.Text = "Media";
+                    }
+                    else if (llave.Equals("3"))
+                    {
+                        logVelocidadPwm.Text = "Alta";
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    robotLog.Update();
+                    robotLog.SelectionStart = commandLog.Text.Length;
+                    robotLog.ScrollToCaret();
                 }
                 catch (TimeoutException e)
                 {
                     robotLog.Text += ("Sin respuesta, reenviar comando" + System.Environment.NewLine);
                     return;
                 }
-                catch (InvalidOperationException ex) {
+                catch (InvalidOperationException ex)
+                {
                     robotLog.Text += ("Conexion no iniciada" + System.Environment.NewLine);
                     return;
                 }
-
-                //Segun el protocolo: "corriente:llave:valor"
-
-                //Corriente sensada:
-                string corriente = respuesta[0];
-                //llave
-                string llave = respuesta[1];
-                //Velocidad promedio
-                string velocidad = respuesta[2];
-
-                logCorriente.Text = ("" + corriente);
-                logVelocidad.Text = ("" + velocidad);
-
-                if (llave.Equals(SOBRECORRIENTE))
-                {
-                    verdePila.Visible = false;
-                    rojoPila.Visible = true;
-                }
-                else {
-                    verdePila.Visible = true;
-                    rojoPila.Visible = false;
+                catch (IndexOutOfRangeException ex2) {
+                    return;
                 }
 
-                if (llave.Equals(GIRO_DERECHA))
-                {
-                    verdeSensorDerecho.Visible = true;
-                    rojoSensorDerecho.Visible = false;
-                    robotLog.Text += ("Giro a la derecha" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(GIRO_IZQUIERDA))
-                {
-                    verdeSensorIzquierdo.Visible = true;
-                    rojoSensorIzquierdo.Visible = false;
-                    robotLog.Text += ("Giro a la izquierda" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(ADELANTE))
-                {
-                    robotLog.Text += ("Avanza" + System.Environment.NewLine);
-
-                }
-                else if (llave.Equals(ATRAS))
-                {
-                    verdeSensorTrasero.Visible = true;
-                    rojoSensorTrasero.Visible = false;
-                    robotLog.Text += ("Retrocede" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(RECOGE))
-                {
-                    verdeBarre.Visible = false;
-                    azulBarre.Visible = true;
-                    robotLog.Text += ("Barre" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(MOV_RECOGE))
-                {
-                    verdeBarre.Visible = true;
-                    azulBarre.Visible = false;
-                    robotLog.Text += ("Escoba en posicion de movimiento" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(DEPOSITA))
-                {
-                    verdeDeposita.Visible = false;
-                    azulDeposita.Visible = true;
-                    robotLog.Text += ("Deposita" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(PALA_RECOGE))
-                {
-                    verdeRecoge.Visible = false;
-                    azulRecoge.Visible = true;
-                    robotLog.Text += ("Pala en posicion de recoger" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(MOV_DEPOSITA) || llave.Equals(MOV_PALA_RECOGE))
-                {
-                    verdeRecoge.Visible = true;
-                    verdeDeposita.Visible = true;
-                    azulRecoge.Visible = false;
-                    azulDeposita.Visible = false;
-                    robotLog.Text += ("Pala en posicion de movimiento" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(POSICIONAR_PALA_ESCOBA))
-                {
-                    robotLog.Text += ("Posicionar pala y escoba para el movimiento" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(SOBRECORRIENTE))
-                {
-                    rojoPila.Visible = true;
-                    verdePila.Visible = false;
-                    robotLog.Text += ("Corriente excedida, robot bloqueado" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(OBSTACULO_DERECHA))
-                {
-                    rojoSensorDerecho.Visible = true;
-                    verdeSensorDerecho.Visible = false;
-                    robotLog.Text += ("Obstaculo a la derecha" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(OBSTACULO_IZQUIERDA))
-                {
-                    rojoSensorIzquierdo.Visible = true;
-                    verdeSensorIzquierdo.Visible = false;
-                    robotLog.Text += ("Obstaculo a la izquierda" + System.Environment.NewLine);
-                }
-                else if (llave.Equals(OBSTACULO_TRASERO))
-                {
-                    rojoSensorTrasero.Visible = true;
-                    verdeSensorTrasero.Visible = false;
-                    robotLog.Text += ("Obstaculo atras" + System.Environment.NewLine);
-                }
-
-                else if (llave.Equals(LIBRE_DERECHA))
-                {
-                    verdeSensorDerecho.Visible = true;
-                    rojoSensorDerecho.Visible = false;
-
-                }
-                else if (llave.Equals(LIBRE_IZQUIERDA))
-                {
-                    verdeSensorIzquierdo.Visible = true;
-                    rojoSensorIzquierdo.Visible = false;
-
-                }
-                else if (llave.Equals(LIBRE_ATRAS))
-                {
-                    verdeSensorTrasero.Visible = true;
-                    rojoSensorTrasero.Visible = false;
-
-                }
-                else if (llave.Equals(CORRIENTE_OK))
-                {
-                    verdePila.Visible = true;
-                    rojoPila.Visible = false;
-
-                }
-                else if(llave.Equals(SENSORES)){
-                    String derecha = respuesta[2];
-                    String atras = respuesta[3];
-                    String izquierda = respuesta[4];
-
-                    verdeSensorDerecho.Visible = !derecha.Equals("O");
-                    rojoSensorDerecho.Visible = derecha.Equals("O");
-
-                    verdeSensorIzquierdo.Visible = !izquierda.Equals("O");
-                    rojoSensorIzquierdo.Visible = izquierda.Equals("O");
-
-                    verdeSensorTrasero.Visible = !atras.Equals("O");
-                    rojoSensorTrasero.Visible = atras.Equals("O");
-                }
-                else if(llave.Equals("1")){
-                    logVelocidadPwm.Text = "Baja";
-                }
-                else if (llave.Equals("2")) {
-                    logVelocidadPwm.Text = "Media";
-                }
-                else if (llave.Equals("3")) {
-                    logVelocidadPwm.Text = "Alta";
-                }
-                else {
-                    
-                }
-
-
-                robotLog.Update();
-                robotLog.SelectionStart = commandLog.Text.Length;
-                robotLog.ScrollToCaret();
+               
             
         }
 
