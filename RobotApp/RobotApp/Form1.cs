@@ -175,7 +175,7 @@ namespace RobotApp
         private void procesarRespuesta() {
                 
                 char[] delimitadores = new char[] { ':' };
-                string[] respuesta = new string[]{"1:n:n:"};
+                string[] respuesta = new string[]{"1","n","n"};
                 try
                 {
                     respuesta = serialPort1.ReadLine().Split(delimitadores);
@@ -312,9 +312,9 @@ namespace RobotApp
                     }
                     else if (llave.Equals(SENSORES))
                     {
-                        String derecha = respuesta[2];
-                        String atras = respuesta[3];
-                        String izquierda = respuesta[4];
+                        String derecha = respuesta[3];
+                        String atras = respuesta[4];
+                        String izquierda = respuesta[5];
 
                         verdeSensorDerecho.Visible = !derecha.Equals("O");
                         rojoSensorDerecho.Visible = derecha.Equals("O");
@@ -339,7 +339,7 @@ namespace RobotApp
                     }
                     else
                     {
-
+                        robotLog.Text += ("Irreconocible" + System.Environment.NewLine);
                     }
 
 
