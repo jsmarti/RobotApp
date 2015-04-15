@@ -171,9 +171,8 @@ namespace RobotApp
 
         }
 
-        private async void procesarRespuesta() {
+        private void procesarRespuesta() {
 
-                await Task.Delay(500);
                 char[] delimitadores = new char[] { ':' };
                 string[] respuesta = new string[]{"1:n:n:"};
                 try
